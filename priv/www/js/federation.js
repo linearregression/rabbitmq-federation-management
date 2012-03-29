@@ -10,7 +10,14 @@ dispatcher_add(function(sammy) {
                 'federation-connection', '#/federation');
         });
     sammy.put('#/fed-globals', function() {
-            if (this.params.value == '') this.params.value = null;
+            if (this.params.value === '') this.params.value = null;
+
+            var bool_keys = ['declare_upstream'];
+            for (var i in bool_keys) {
+                bool_key = bool_keys[i];
+                if (this.params.key == bool_key)
+                    this.params.value = (this.params.value != undefined);
+            }
 
             if (sync_put(this, '/parameters/:app_name/:key'))
                 update();
