@@ -28,7 +28,7 @@ dispatcher_add(function(sammy) {
                 if (this.params[i] == '') {
                     delete this.params[i];
                 }
-                else if (num_keys.indexOf(i) != -1) {
+                else if (num_keys.indexOf(i) !== -1) {
                     this.params[i] = parseInt(this.params[i]);
                 }
             }

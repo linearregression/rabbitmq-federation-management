@@ -27,7 +27,7 @@
    <tr<%= alt_rows(i)%>>
     <td>
       <%= fmt_string(link.connection) %>
-      <% if (link.exchange != link.upstream_exchange) { %>
+      <% if (link.exchange !== link.upstream_exchange) { %>
       <sub><%= fmt_string(link.upstream_exchange) %></sub>
       <% } %>
     </td>
@@ -47,7 +47,7 @@
   </tr>
 <% } else { %>
     <td class="status">
-       <% if (link.status == 'starting') { %>
+       <% if (link.status === 'starting') { %>
          <div class="yellow"><%= link.status %></div>
        <% } else { %>
          <div class="green"><%= link.status %></div>
@@ -73,8 +73,8 @@
 var username = null;
 var nodename = null;
 for (var i in globals) {
-   if (globals[i].key == 'local_username') username = globals[i].value;
-   if (globals[i].key == 'local_nodename') nodename = globals[i].value;
+   if (globals[i].key === 'local_username') username = globals[i].value;
+   if (globals[i].key === 'local_nodename') nodename = globals[i].value;
 }
 %>
 <div class="section-hidden">
